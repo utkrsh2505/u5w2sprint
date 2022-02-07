@@ -3,12 +3,13 @@ import { useState } from "react";
 import { TodoInput } from "./TodoInput";
 import { v4 as uuid } from "uuid";
 import { TodoList } from "./TodoList";
+import style from "./todo.module.css";
 const Todo = () => {
   const list = [
     {
         id: 1,
       title: "Reading",
-      status: "false",
+      status: "true",
     }
   ];
   const [todos, setTodos] = useState(list);
@@ -49,21 +50,38 @@ const Todo = () => {
     <>
       <h1>Todo</h1>
       <TodoInput handleAdd={handleAdd} />
+       <button  className={style.bt}onClick={()=>{setShow(!show)}}>{show ? ("ShowAll" ): ("Show Completed")}</button>
       <div>
-        {todos.map((item) => {
-          return (
-            <TodoList
-              key={item.id}
-              title={item.title}
-              status={item.status}
-              id={item.id}
-              handleDelete = {handleDelete}
-              edit={edit}
-              handleSave={handleSave}
-              handleEdit = {handleEdit}
-            />
-          );
-        })}
+          {show ? (todos.filter((i)=>{
+               return(i.status == "true") 
+          }).map((item) => {
+            return (
+              <TodoList
+                key={item.id}
+                title={item.title}
+                status={item.status}
+                id={item.id}
+                handleDelete = {handleDelete}
+                edit={edit}
+                handleSave={handleSave}
+                handleEdit = {handleEdit}
+              />
+            );
+          })) : (todos.map((item) => {
+            return (
+              <TodoList
+                key={item.id}
+                title={item.title}
+                status={item.status}
+                id={item.id}
+                handleDelete = {handleDelete}
+                edit={edit}
+                handleSave={handleSave}
+                handleEdit = {handleEdit}
+              />
+            )
+          }))}
+        
       </div>
     </>
   );
