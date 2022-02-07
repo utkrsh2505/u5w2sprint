@@ -19,7 +19,7 @@ const TodoInput = ({ handleAdd }) => {
         className={style.btn}
         onClick={() => {
           handleAdd(data);
-          setData(" ");
+          setData("");
         }}
       >
         ADD

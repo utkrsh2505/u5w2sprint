@@ -6,15 +6,19 @@ import { TodoList } from "./TodoList";
 const Todo = () => {
   const list = [
     {
+        id: 1,
       title: "Reading",
       status: "false",
-      id: 1
     }
   ];
   const [todos, setTodos] = useState(list);
   const [edit,setEdit] = useState(false);
+  const [show,setShow] = useState(false);
 
   const handleAdd = (title) => {
+      if(!title){
+          return
+      }
     const payload = {
       title: title,
       status: "false",
