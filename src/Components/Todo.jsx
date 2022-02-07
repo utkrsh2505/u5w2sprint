@@ -12,6 +12,7 @@ const Todo = () => {
     }
   ];
   const [todos, setTodos] = useState(list);
+  const [edit,setEdit] = useState(false);
 
   const handleAdd = (title) => {
     const payload = {
@@ -30,6 +31,16 @@ const Todo = () => {
       setTodos(deleted);
 
   }
+  const handleSave = (id)=>{
+      setEdit(false);
+      
+      
+
+  }
+  const handleEdit = (id)=>{
+      setEdit(true);
+  }
+  
   return (
     <>
       <h1>Todo</h1>
@@ -43,6 +54,9 @@ const Todo = () => {
               status={item.status}
               id={item.id}
               handleDelete = {handleDelete}
+              edit={edit}
+              handleSave={handleSave}
+              handleEdit = {handleEdit}
             />
           );
         })}
