@@ -1,0 +1,25 @@
+
+.text {
+    background-color: white;
+    padding: 2vh;
+    border: none;
+    border-radius: 10px;
+  }
+  .btn {
+    color: white;
+    background-color: rgb(204, 103, 35);
+    padding: 2vh;
+    border: none;
+    margin-left: 30px;
+    border-radius: 10px;
+   
+  }
+  .del_btn{
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  
